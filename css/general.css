@@ -1,0 +1,46 @@
+@import "/css/styles.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  margin: 0 auto;
+  font-family: "Source", sans-serif;
+  font-size: 1.6rem;
+  background: rgb(243, 243, 243);
+}
+
+h2 {
+  text-transform: uppercase;
+  letter-spacing: 6.5px;
+}
+
+p {
+  font-size: 1.5rem;
+  line-height: 2;
+  font-weight: 300;
+  color: rgba(16, 42, 66, 1);
+}
+
+hr {
+  border: 0.5px solid #a68f49;
+  height: 1px;
+  /* background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0)); */
+}
+
+ul {
+  list-style: none;
+}
+
+/* img {
+  width: 100%;
+  height: auto;
+} */
