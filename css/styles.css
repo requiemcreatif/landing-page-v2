@@ -15,10 +15,6 @@ span {
 
 /* MOBILE NAVIGATION */
 
-.navbar-menu {
-  display: none;
-}
-
 .mobile-heading {
   padding: 2rem 2rem;
   display: flex;
