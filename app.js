@@ -22,6 +22,7 @@ const closeIcon = document.querySelector(".close");
 
 function navBuilder() {
   for (let i = 0; i < sections.length; i++) {
+    // maybe to refactor
     const navItem = document.createElement("li");
     const navLink = document.createElement("a");
     navLink.textContent = menu[i];
@@ -29,6 +30,7 @@ function navBuilder() {
     navLink.setAttribute("href", `#${sections[i].id}`);
     navItem.appendChild(navLink);
     navBar.appendChild(navItem);
+    // maybe to refactor
   }
 }
 
@@ -36,14 +38,16 @@ function navBuilder() {
 
 function mobileNavBuilder() {
   for (let i = 0; i < sections.length; i++) {
+    const mobileNavIcon = document.createElement("i");
+    // maybe to refactor
     const mobileNavItem = document.createElement("li");
     const mobileNavLink = document.createElement("a");
-    const mobileNavIcon = document.createElement("i");
     mobileNavLink.textContent = menu[i];
     mobileNavLink.setAttribute("class", "mobile-link ");
     mobileNavLink.setAttribute("href", `#${sections[i].id}`);
     mobileNavItem.appendChild(mobileNavLink);
     mobileNav.appendChild(mobileNavItem);
+    // maybe to refactor
     mobileNavIcon.setAttribute("class", "fa-solid fa-angle-right");
     mobileNavItem.appendChild(mobileNavIcon);
   }
@@ -103,27 +107,29 @@ function scrollAnchor() {
       target.getAttribute("href")
     );
     sectionHighlight.scrollIntoView({ behavior: "smooth" });
-    console.log(sectionHighlight + " " + target);
-    console.log("clicked");
-    console.log(target.textContent);
+    // console.log(sectionHighlight + " " + target);
+    // console.log("clicked");
+    // console.log(target.textContent);
   });
 }
 
 /*make navbar disappear when not scrolling*/
 
-function hiddenNav() {
+/*need to fix the hidden menu, for some reason not working properly*/
+
+/*function hiddenNav() {
   let timer;
   window.addEventListener("scroll", function () {
     clearTimeout(timer);
     timer = setTimeout(function () {
       navMenu.classList.add("display-nav");
-    }, 2000);
+    }, 1000);
     console.log("nav is not hidden");
   });
   window.addEventListener("scroll", function () {
     navMenu.classList.remove("display-nav");
   });
-}
+}*/
 
 /**
  * End Main Functions
