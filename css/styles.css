@@ -26,6 +26,7 @@ span {
   width: 100%;
   background-color: #fff;
   z-index: 100;
+  overflow: hidden;
 }
 
 .mobile-heading h2 {
@@ -58,6 +59,7 @@ span {
   background-color: #fff;
   z-index: 100;
   opacity: 0.8;
+  overflow: hidden;
 }
 
 #mobile-navbar-list a {
@@ -490,7 +492,7 @@ h4 {
     padding: 0 10rem;
   }
 
-  .home-intro{
+  .home-intro {
     font-size: 4rem;
   }
 
@@ -521,9 +523,8 @@ h4 {
   }
 
   .show-title {
-   align-self: flex-start;
-   padding-bottom: 5rem;
-   
+    align-self: flex-start;
+    padding-bottom: 5rem;
   }
 
   #experience {
@@ -562,7 +563,7 @@ h4 {
     padding: 0 10rem;
   }
 
-  .proj-title{
+  .proj-title {
     font-size: 7rem;
   }
 
@@ -580,14 +581,13 @@ h4 {
     justify-content: center;
   }
 
-  .test-one blockquote{
+  .test-one blockquote {
     font-size: 3.5rem;
     padding: 0 8rem;
     padding-bottom: 3rem;
   }
 
-  .test-one p{
-
+  .test-one p {
     padding: 0 8rem;
   }
 
