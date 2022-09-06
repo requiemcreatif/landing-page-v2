@@ -34,6 +34,20 @@ function navBuilder() {
   }
 }
 
+/*Scroll to anchor ID using scrollTO event and smooth scrolling*/
+
+function scrollAnchor() {
+  navBar.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const target = event.target;
+    const sectionHighlight = document.querySelector(
+      target.getAttribute("href")
+    );
+    sectionHighlight && sectionHighlight.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
 /*Build the mobile-navbar-menu */
 
 function mobileNavBuilder() {
@@ -53,19 +67,7 @@ function mobileNavBuilder() {
   }
 }
 
-function openMenu() {
-  openIcon.addEventListener("click", () => {
-    mobileNav.style.display = "block";
-    document.querySelector(".mobile-heading").style.display = "none";
-  });
-}
-
-function closeMenu() {
-  closeIcon.addEventListener("click", () => {
-    mobileNav.style.display = "none";
-    document.querySelector(".mobile-heading").style.display = "flex";
-  });
-}
+/*smooth scroll mobile*/
 
 function mobileNavScroll() {
   mobileNav.addEventListener("click", (e) => {
@@ -73,7 +75,22 @@ function mobileNavScroll() {
     const target = e.target;
     const targetId = target.getAttribute("href");
     const targetSection = document.querySelector(targetId);
-    targetSection.scrollIntoView({ behavior: "smooth" });
+    targetSection && targetSection.scrollIntoView({ behavior: "smooth" });
+  });
+}
+
+/* Opening mobile menu */
+function openMenu() {
+  openIcon.addEventListener("click", () => {
+    mobileNav.style.display = "block";
+    document.querySelector(".mobile-heading").style.display = "none";
+  });
+}
+/* Closing mobile menu */
+function closeMenu() {
+  closeIcon.addEventListener("click", () => {
+    mobileNav.style.display = "none";
+    document.querySelector(".mobile-heading").style.display = "flex";
   });
 }
 
@@ -93,20 +110,6 @@ function setActiveSection() {
         navLink.classList.remove("active-link");
       }
     });
-  });
-}
-
-/*Scroll to anchor ID using scrollTO event and smooth scrolling*/
-
-function scrollAnchor() {
-  navBar.addEventListener("click", (event) => {
-    event.preventDefault();
-
-    const target = event.target;
-    const sectionHighlight = document.querySelector(
-      target.getAttribute("href")
-    );
-    sectionHighlight.scrollIntoView({ behavior: "smooth" });
   });
 }
 
