@@ -647,3 +647,9 @@ h4 {
     display: none;
   }
 }
+
+@media (width < 400px) {
+  .navbar-menu {
+    display: none;
+  }
+}

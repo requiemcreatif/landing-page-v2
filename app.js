@@ -107,9 +107,6 @@ function scrollAnchor() {
       target.getAttribute("href")
     );
     sectionHighlight.scrollIntoView({ behavior: "smooth" });
-    // console.log(sectionHighlight + " " + target);
-    // console.log("clicked");
-    // console.log(target.textContent);
   });
 }
 
