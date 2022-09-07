@@ -71,6 +71,8 @@ function createElement() {
   });
 })();
 
+/*set active class for mobile and destop*/
+
 /*Build the mobile-navbar-menu */
 
 (function mobileNavBuilder() {
@@ -90,6 +92,27 @@ function createElement() {
   }
 })();
 
+// add .active-link-mobile to active mobile link
+(function setActiveMobileLink() {
+  mobileNav.addEventListener("click", (event) => {
+    event.preventDefault();
+    const target = event.target;
+    const mobileLinks = document.querySelectorAll(".mobile-link");
+    mobileLinks.forEach((link) => {
+      link.classList.remove("active-link-mobile");
+      // change color on active link
+      if (link === target) {
+        link.style.color = "#a68f49";
+        link.style.fontWeight = "bold";
+      } else {
+        link.style.color = "#000";
+        link.style.fontWeight = "300";
+      }
+    });
+    target.classList.add("active-link-mobile");
+  });
+})();
+
 /*smooth scroll mobile*/
 
 (function mobileNavScroll() {
@@ -102,7 +125,7 @@ function createElement() {
   });
 })();
 
-/* Opening mobile menu (hamberger)*/
+/* Opening mobile menu (hamburger)*/
 (function openMenu() {
   openIcon.addEventListener("click", () => {
     mobileNav.style.display = "block";
@@ -133,6 +156,32 @@ function createElement() {
     navMenu.classList.remove("display-nav");
   });
 })();
+
+/* collect data from subcription form and subscription message*/
+
+const form = document.querySelector(".form");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  //message store in an object
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData);
+  console.log(data); // to check if data is stored in an object
+  const message = document.createElement("p");
+  message.textContent = "Thank you for subscribing!";
+  message.style.color = "#a68f49";
+  message.style.fontSize = "1.5rem";
+  message.style.fontWeight = "bold";
+  message.style.marginTop = "1rem";
+  form.appendChild(message);
+  form.reset();
+  //remove message after 3 seconds
+  setTimeout(() => {
+    message.remove();
+  }, 3000);
+});
+// form.textContent = "Thank you for subscribing!";
+
+// create a modal for the form
 
 /**
  * End Main Functions
