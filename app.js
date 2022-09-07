@@ -18,11 +18,10 @@ const mobileMenu = document.querySelector(".mobile-navbar-menu");
 const openIcon = document.querySelector(".open-menu");
 const closeIcon = document.querySelector(".close");
 
-/*Build the nav*/
+/* HELPER FUNCTIONS */
 
-function navBuilder() {
+function createElement() {
   for (let i = 0; i < sections.length; i++) {
-    // maybe to refactor
     const navItem = document.createElement("li");
     const navLink = document.createElement("a");
     navLink.textContent = menu[i];
@@ -30,13 +29,18 @@ function navBuilder() {
     navLink.setAttribute("href", `#${sections[i].id}`);
     navItem.appendChild(navLink);
     navBar.appendChild(navItem);
-    // maybe to refactor
   }
 }
 
+/*Build the Desktop nav*/
+
+(function navBuilder() {
+  createElement();
+})();
+
 /*Scroll to anchor ID using scrollTO event and smooth scrolling*/
 
-function scrollAnchor() {
+(function scrollAnchor() {
   navBar.addEventListener("click", (event) => {
     event.preventDefault();
 
@@ -46,57 +50,11 @@ function scrollAnchor() {
     );
     sectionHighlight && sectionHighlight.scrollIntoView({ behavior: "smooth" });
   });
-}
-
-/*Build the mobile-navbar-menu */
-
-function mobileNavBuilder() {
-  for (let i = 0; i < sections.length; i++) {
-    const mobileNavIcon = document.createElement("i");
-    // maybe to refactor
-    const mobileNavItem = document.createElement("li");
-    const mobileNavLink = document.createElement("a");
-    mobileNavLink.textContent = menu[i];
-    mobileNavLink.setAttribute("class", "mobile-link ");
-    mobileNavLink.setAttribute("href", `#${sections[i].id}`);
-    mobileNavItem.appendChild(mobileNavLink);
-    mobileNav.appendChild(mobileNavItem);
-    // maybe to refactor
-    mobileNavIcon.setAttribute("class", "fa-solid fa-angle-right");
-    mobileNavItem.appendChild(mobileNavIcon);
-  }
-}
-
-/*smooth scroll mobile*/
-
-function mobileNavScroll() {
-  mobileNav.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = e.target;
-    const targetId = target.getAttribute("href");
-    const targetSection = document.querySelector(targetId);
-    targetSection && targetSection.scrollIntoView({ behavior: "smooth" });
-  });
-}
-
-/* Opening mobile menu */
-function openMenu() {
-  openIcon.addEventListener("click", () => {
-    mobileNav.style.display = "block";
-    document.querySelector(".mobile-heading").style.display = "none";
-  });
-}
-/* Closing mobile menu */
-function closeMenu() {
-  closeIcon.addEventListener("click", () => {
-    mobileNav.style.display = "none";
-    document.querySelector(".mobile-heading").style.display = "flex";
-  });
-}
+})();
 
 /*Add class 'active' to section and 'active-link' to menu when near top of viewport using getBoundingClientRect*/
 
-function setActiveSection() {
+(function setActiveSection() {
   sections.forEach((section) => {
     window.addEventListener("scroll", () => {
       const rect = section.getBoundingClientRect();
@@ -111,25 +69,70 @@ function setActiveSection() {
       }
     });
   });
-}
+})();
+
+/*Build the mobile-navbar-menu */
+
+(function mobileNavBuilder() {
+  for (let i = 0; i < sections.length; i++) {
+    const mobileNavIcon = document.createElement("i");
+    // maybe to refactor
+    const mobileNavItem = document.createElement("li");
+    const mobileNavLink = document.createElement("a");
+    mobileNavLink.textContent = menu[i];
+    mobileNavLink.setAttribute("class", "mobile-link ");
+    mobileNavLink.setAttribute("href", `#${sections[i].id}`);
+    mobileNavItem.appendChild(mobileNavLink);
+    mobileNav.appendChild(mobileNavItem);
+    // maybe to refactor
+    mobileNavIcon.setAttribute("class", "fa-solid fa-angle-right");
+    mobileNavItem.appendChild(mobileNavIcon);
+  }
+})();
+
+/*smooth scroll mobile*/
+
+(function mobileNavScroll() {
+  mobileNav.addEventListener("click", (e) => {
+    e.preventDefault();
+    const target = e.target;
+    const targetId = target.getAttribute("href");
+    const targetSection = document.querySelector(targetId);
+    targetSection && targetSection.scrollIntoView({ behavior: "smooth" });
+  });
+})();
+
+/* Opening mobile menu (hamberger)*/
+(function openMenu() {
+  openIcon.addEventListener("click", () => {
+    mobileNav.style.display = "block";
+    document.querySelector(".mobile-heading").style.display = "none";
+  });
+})();
+
+/* Closing mobile menu (cross icon)*/
+(function closeMenu() {
+  closeIcon.addEventListener("click", () => {
+    mobileNav.style.display = "none";
+    document.querySelector(".mobile-heading").style.display = "flex";
+  });
+})();
 
 /*make navbar disappear when not scrolling*/
 
-/*need to fix the hidden menu, for some reason not working properly*/
-
-/*function hiddenNav() {
+/*need to fix the hidden menu, for some reason not working properly*/ /*seems to work now*/
+(function hiddenNav() {
   let timer;
   window.addEventListener("scroll", function () {
     clearTimeout(timer);
     timer = setTimeout(function () {
       navMenu.classList.add("display-nav");
-    }, 1000);
-    console.log("nav is not hidden");
+    }, 2000);
   });
   window.addEventListener("scroll", function () {
     navMenu.classList.remove("display-nav");
   });
-}*/
+})();
 
 /**
  * End Main Functions
@@ -137,16 +140,18 @@ function setActiveSection() {
  *
  */
 
-// Build menu
-navBuilder();
-mobileNavBuilder();
-openMenu();
-closeMenu();
-// Scroll to section on link click
-scrollAnchor();
-mobileNavScroll();
-// Set sections as active
-setActiveSection();
+/* Build menu*/
+// navBuilder();
+// mobileNavBuilder();
+// openMenu();
+// closeMenu();
 
-// Hide navbar when not scrolling
+/*Scroll to section on link click*/
+// scrollAnchor();
+// mobileNavScroll();
+
+/* Set sections as active*/
+// setActiveSection();
+
+/* Hide navbar when not scrolling*/
 // hiddenNav();
