@@ -1,5 +1,4 @@
 /*Define Global Variables*/
-
 const sections = document.querySelectorAll("section");
 const navBar = document.querySelector("#navbar-list");
 const menu = [
