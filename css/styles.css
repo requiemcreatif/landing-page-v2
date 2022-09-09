@@ -386,6 +386,13 @@ h4 {
 
 /* MEDIA QUERY RESPONSIVE MIN-WIDTH 600PX */
 @media (min-width: 600px) {
+  .alert {
+    display: none;
+  }
+  .closebtn {
+    display: none;
+  }
+
   body {
     max-width: 1366px;
     background-color: #f2f2f2;
