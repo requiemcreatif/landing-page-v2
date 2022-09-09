@@ -582,7 +582,7 @@ h4 {
 
   .test-two {
     grid-area: test-two;
-    background-image: url(/img/building-four.jpg);
+    /* background-image: url(/img/building-four.jpg); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
