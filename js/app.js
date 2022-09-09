@@ -149,7 +149,7 @@ function createElement() {
     clearTimeout(timer);
     timer = setTimeout(function () {
       navMenu.classList.add("display-nav");
-    }, 2000);
+    }, 4000);
   });
   window.addEventListener("scroll", function () {
     navMenu.classList.remove("display-nav");
