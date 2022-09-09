@@ -3,7 +3,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&family=Source+Sans+Pro:wght@300;400;600;700&family=Syne:wght@400;600;700&display=swap");
 
 /* MAIN */
-
+#navbar-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 span {
   color: #a68f49;
   font-size: 3rem;
