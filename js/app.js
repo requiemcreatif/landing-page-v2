@@ -167,7 +167,7 @@ form.addEventListener("submit", (e) => {
   // console.log(data); // to check if data is stored in an object
   const message = document.createElement("p");
 
-  message.textContent = `Hey ${data.name}, hello dear! thanks for subscribing to the Jedi newsletter. We'll send you some tips ${data.email} to keep out of the darkside of the force. May the force be with you!`;
+  message.textContent = `Hey ${data.name}, hello dear! thanks for subscribing to the Jedi newsletter. We'll send you some tips ${data.email} to keep you out of the darkside of the force. May the force be with you!`;
   message.setAttribute("class", "message");
 
   form.append(message);
